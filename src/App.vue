@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <myheader></myheader>
+    <section id="content">
+      <myleft></myleft>
+      <article id="right"></article>
+
+    </section>
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import {myheader, myleft} from './components'
+
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+    data() {
+      return {
+          isCollapse: true
+      };
+    },
+    components:{
+        myheader,
+        myleft
+    }
   }
-}
 </script>
 
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+#app{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#content{
+  /*下面整个*/
+  display: flex;
+  flex:1;
+}
+
+#right{
+  /*页面右侧*/
+  background-color:grey;
+}
+
+
+
 </style>
