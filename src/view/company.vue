@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div>
+        公司列表
+    </div>
 </template>
 
 <script>

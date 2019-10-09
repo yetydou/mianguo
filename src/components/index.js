@@ -10,6 +10,11 @@
 //方法2
 export var myheader =() =>import('./Header.vue')
 export var myleft =() =>import('./Left.vue')
+export var bread = () =>import('./bread.vue')
+
+export var chartscolumn =() => import('./echarts/column.vue')
+export var chartsline =() => import('./echarts/line.vue')
+export var chartspie =() => import('./echarts/pie.vue')
 
 
 //方法3

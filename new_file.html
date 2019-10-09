@@ -3,8 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 <body>
+    <div id="app">
+        <aaa></aaa>
+        <hr>
+        <bbb></bbb>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vuex/3.1.1/vuex.js"></script>
+        <script type="text/javascript">
+            // 中央事件总线
+            var bus = new Vue()
 
+
+            Vue.component("aaa",{
+                template:`<input v-model="msg"/>`,
+                computed:{
+                    nickname(){
+                        return this.$store.state.nickname
+                    }
+                },
+                data(){
+                    return{
+                        msg:this.nickname,
+                    }
+                },
+                watch:{
+                    msg(val){
+                        this.$store.commit("setnickname",val)
+                    }
+                }
+
+                // //watch是触发 主动的 和我一样的
+                // watch:{
+                //     msg(val){
+                //         bus.$emit("change",val)
+                //     }
+                // },
+
+
+            })
+            Vue.component("bbb",{
+                template:`<input v-model="msg"/>`,
+                computed:{
+                    nickname(){
+                        return this.$store.state.nickname
+                    }
+                },
+                data(){
+                    return{
+                        msg:this.nickname,
+                    }
+                },
+                watch:{
+                    msg(val){
+                        this.$store.commit("setnickname",val)
+                    }
+                }
+
+
+
+                // //created是接收 被动的 被绑定
+                // created(){
+                //     bus.$on("change",(e)=>{
+                //         this.msg= e
+                //     })
+                // },
+
+            })
+
+            new Vue({
+                el:"#app",
+                store:new Vuex.Store({
+                    state:{
+                        nickname:"tudou"
+                    },
+                    mutations:{
+                        setnickname(state,val){
+                            state.nickname=val
+                        }
+                    }
+                })
+            })
+        </script>
 </body>
 </html>
