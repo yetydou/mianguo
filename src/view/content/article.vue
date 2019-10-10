@@ -123,6 +123,7 @@
                            this.getlist()
                        }else{
                            this.$fail("保存失败!");
+                           console.log("hh")
                        }
                 })
             },
